@@ -24,12 +24,12 @@ class Connection(object):
         service_args = [
             '--proxy=%s' % (ip),
             '--proxy-type=http',
-            '--proxy-auth=similarweb:GTq8a112wQ'
+            '--proxy-auth=username:password'
         ]
         return service_args
 
     def get_driver(self):
-        authentication_token = "Basic " + base64.b64encode(b'similarweb:GTq8a112wQ')
+        authentication_token = "Basic " + base64.b64encode(b'username:password')
         capa = webdriver.DesiredCapabilities.PHANTOMJS
         capa['phantomjs.page.customHeaders.Proxy-Authorization'] = authentication_token
         capa["phantomjs.page.settings.userAgent"] = (self.get_userAgent())
